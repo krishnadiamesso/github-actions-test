@@ -15,7 +15,7 @@ on:
   workflow_dispatch:
 
 env:
-  name: Ramses
+  name: Ramses 2
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
