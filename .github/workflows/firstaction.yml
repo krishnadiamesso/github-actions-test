@@ -35,7 +35,7 @@ jobs:
   # This workflow contains a single job called "pull_request_only"
   pull_request_only:
     # The type of runner that the job will run on
-    runs-on: macos-10.15
+    runs-on: macos-latest
     if: github.event_name == 'pull_request'
     needs: build
 
