@@ -30,12 +30,22 @@ jobs:
     steps:
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, $name!
+        run: |
+          echo Hello, $name!
+          echo Actor: ${{ github.actor }}
+          echo Committed By: ${{ github.event.commits[0].author.name }}
+
+  dump:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo ${{GITHUB_CONTEXT}}
 
   # This workflow contains a single job called "pull_request_only"
   pull_request_only:
     # The type of runner that the job will run on
-    runs-on: macos-10.15
+    runs-on: macos-latest
     if: github.event_name == 'pull_request'
     needs: build
 
