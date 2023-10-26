@@ -40,7 +40,7 @@ jobs:
     steps:
       - env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo ${{GITHUB_CONTEXT}}
+        run: echo "$GITHUB_CONTEXT"
 
   # This workflow contains a single job called "pull_request_only"
   pull_request_only:
